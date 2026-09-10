@@ -66,7 +66,14 @@ class TechnicalAuditorAgent:
         await asyncio.sleep(0.4)
 
         lowered_pain = lead.core_pain_point.lower()
-        if "telemetry" in lowered_pain or "robot" in lowered_pain:
+        if "cobol" in lowered_pain or "mainframe" in lowered_pain or "infeasible" in lead.client_name.lower():
+            return TechnicalReport(
+                evaluator_name=self.agent_name,
+                is_feasible=False,
+                estimated_sprint_weeks=12,
+                infrastructure_requirements=["Unsupported legacy mainframe protocol"]
+            )
+        elif "telemetry" in lowered_pain or "robot" in lowered_pain:
             return TechnicalReport(
                 evaluator_name=self.agent_name,
                 is_feasible=True,
