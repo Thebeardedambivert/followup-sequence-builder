@@ -4,14 +4,14 @@ Week 5: Multi-Agent Systems Engineering
 """
 
 from typing import List, Optional
-from contracts import CadenceStrategy
-from debate_contracts import (
+from multi_agent_platform.build1_sequential.contracts import CadenceStrategy
+from multi_agent_platform.build4_debate_consensus.debate_contracts import (
     CritiqueSeverity,
     CritiqueReport,
     DebateDraft,
     ConsensusVerdict,
 )
-from debate_agents import DebateCopywriterAgent, RiskAndComplianceCriticAgent
+from multi_agent_platform.build4_debate_consensus.debate_agents import DebateCopywriterAgent, RiskAndComplianceCriticAgent
 
 
 class DebateProtocolCoordinator:
@@ -94,7 +94,7 @@ class DebateProtocolCoordinator:
 # VERIFICATION BLOCK
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    from contracts import DealTier
+    from multi_agent_platform.build1_sequential.contracts import DealTier
 
     strat = CadenceStrategy(
         company_name="Cyberdyne Systems",

@@ -3,7 +3,7 @@ agents.py - Independent Specialist Actors for Build 1: Sequential Specialists.
 Week 5: Multi-Agent Systems Engineering
 """
 
-from contracts import (
+from multi_agent_platform.build1_sequential.contracts import (
     ExtractedLead,
     CadenceStrategy,
     FinalSequence,

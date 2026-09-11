@@ -6,7 +6,7 @@ Week 5: Multi-Agent Systems Engineering
 from pydantic import BaseModel, Field, model_validator
 from typing import List, Optional
 from enum import Enum
-from contracts import EmailDraft
+from multi_agent_platform.build1_sequential.contracts import EmailDraft
 
 
 

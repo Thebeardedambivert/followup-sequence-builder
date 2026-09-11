@@ -7,15 +7,15 @@ import asyncio
 import time
 from typing import List, Tuple, Union
 
-from contracts import ExtractedLead
-from evaluator_contracts import (
+from multi_agent_platform.build1_sequential.contracts import ExtractedLead
+from multi_agent_platform.build2_parallel_evaluators.evaluator_contracts import (
     ClearanceStatus,
     DealClearanceVerdict,
     FinancialReport,
     TechnicalReport,
     ComplianceReport,
 )
-from evaluators import (
+from multi_agent_platform.build2_parallel_evaluators.evaluators import (
     FinancialAuditorAgent,
     TechnicalAuditorAgent,
     ComplianceAuditorAgent,
@@ -150,7 +150,7 @@ class ParallelEvaluatorSquad:
 # Controlled Verification Suite (Happy Path, Hanging Timeout, and Policy Rejection)
 # ===========================================================================
 if __name__ == "__main__":
-    from contracts import DealTier
+    from multi_agent_platform.build1_sequential.contracts import DealTier
 
     async def run_tests():
         print("\n========================================================")

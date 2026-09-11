@@ -7,8 +7,8 @@ import time
 from typing import Optional, Dict, Any
 from pydantic import BaseModel, Field
 
-from contracts import ExtractedLead, CadenceStrategy, FinalSequence
-from agents import LeadExtractorAgent, SequenceStrategistAgent, CopywriterAgent
+from multi_agent_platform.build1_sequential.contracts import ExtractedLead, CadenceStrategy, FinalSequence
+from multi_agent_platform.build1_sequential.agents import LeadExtractorAgent, SequenceStrategistAgent, CopywriterAgent
 
 
 # ---------------------------------------------------------------------------

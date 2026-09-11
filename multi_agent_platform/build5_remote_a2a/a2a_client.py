@@ -15,7 +15,7 @@ import asyncio
 import httpx
 from typing import Dict, Any, Optional
 
-from multi_agent_platform.a2a_contracts import (
+from multi_agent_platform.build5_remote_a2a.a2a_contracts import (
     JsonRpcRequest,
     JsonRpcResponse,
     AgentCapabilityCard,

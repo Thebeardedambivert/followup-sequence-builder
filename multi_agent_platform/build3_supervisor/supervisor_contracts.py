@@ -8,8 +8,8 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 
 # Import our existing envelopes from Build 1 and Build 2
-from contracts import ExtractedLead, FinalSequence
-from evaluator_contracts import DealClearanceVerdict
+from multi_agent_platform.build1_sequential.contracts import ExtractedLead, FinalSequence
+from multi_agent_platform.build2_parallel_evaluators.evaluator_contracts import DealClearanceVerdict
 
 
 class RouteDecision(str, Enum):

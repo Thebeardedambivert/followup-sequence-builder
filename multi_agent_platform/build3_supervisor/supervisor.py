@@ -7,12 +7,12 @@ import asyncio
 import time
 from typing import List, Optional
 
-from contracts import ExtractedLead, DealTier, CadenceStrategy, FinalSequence
-from agents import SequenceStrategistAgent, CopywriterAgent
-from evaluator_contracts import ClearanceStatus, DealClearanceVerdict
-from evaluators import FinancialAuditorAgent, TechnicalAuditorAgent, ComplianceAuditorAgent
-from parallel_evaluator_squad import ParallelEvaluatorSquad
-from supervisor_contracts import RouteDecision, SupervisorDecision, CoordinatorResult
+from multi_agent_platform.build1_sequential.contracts import ExtractedLead, DealTier, CadenceStrategy, FinalSequence
+from multi_agent_platform.build1_sequential.agents import SequenceStrategistAgent, CopywriterAgent
+from multi_agent_platform.build2_parallel_evaluators.evaluator_contracts import ClearanceStatus, DealClearanceVerdict
+from multi_agent_platform.build2_parallel_evaluators.evaluators import FinancialAuditorAgent, TechnicalAuditorAgent, ComplianceAuditorAgent
+from multi_agent_platform.build2_parallel_evaluators.parallel_evaluator_squad import ParallelEvaluatorSquad
+from multi_agent_platform.build3_supervisor.supervisor_contracts import RouteDecision, SupervisorDecision, CoordinatorResult
 
 
 class LeadSupervisorAgent:

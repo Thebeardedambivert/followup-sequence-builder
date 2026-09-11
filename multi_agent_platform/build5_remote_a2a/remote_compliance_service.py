@@ -17,7 +17,7 @@ import asyncio
 from typing import Dict, Any, Optional
 from aiohttp import web
 
-from multi_agent_platform.a2a_contracts import (
+from multi_agent_platform.build5_remote_a2a.a2a_contracts import (
     JsonRpcRequest,
     JsonRpcResponse,
     JsonRpcError,

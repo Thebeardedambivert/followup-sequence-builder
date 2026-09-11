@@ -102,33 +102,43 @@ Specialist agents (`Copywriter`, `Auditor`, `Critic`) are pure deep modules:
 
 ```
 followup-sequence-builder/
-├── README.md                      # Comprehensive Architecture & Operations Guide
-├── requirements.txt               # Pinned production dependencies
-├── schemas.py                     # SQLite session persistence models
-├── session_store.py               # Durable thread state management
-└── multi_agent_platform/          # Core Multi-Agent Distributed Engine
-    ├── __init__.py                # Package initialization
-    ├── MASTER_ARCHITECTURE.md     # In-depth architectural notes & lineage
+├── README.md                          # Comprehensive Architecture & Operations Guide
+├── requirements.txt                   # Pinned production dependencies
+├── schemas.py                         # SQLite session persistence models
+├── session_store.py                   # Durable thread state management
+└── multi_agent_platform/              # Core Multi-Agent Distributed Engine
+    ├── __init__.py                    # Package initialization
+    ├── MASTER_ARCHITECTURE.md         # In-depth architectural notes & lineage
     │
-    ├── contracts.py               # Build 1: Core domain contracts
-    ├── agents.py                  # Build 1: Sequential specialist agents
-    ├── pipeline.py                # Build 1: Sequential pipeline runner
+    ├── build1_sequential/             # Build 1: Sequential Specialists
+    │   ├── __init__.py
+    │   ├── contracts.py               # Typed boundary envelopes
+    │   ├── agents.py                  # LeadExtractor, SequenceStrategist, Copywriter
+    │   └── pipeline.py                # Pipeline runner & telemetry
     │
-    ├── evaluator_contracts.py     # Build 2: Parallel evaluation contracts
-    ├── evaluators.py              # Build 2: CFO, Architect, Legal evaluators
-    ├── parallel_evaluator_squad.py# Build 2: Fan-out / Fan-in aggregator
+    ├── build2_parallel_evaluators/    # Build 2: Parallel Fan-Out / Fan-In
+    │   ├── __init__.py
+    │   ├── evaluator_contracts.py     # Evaluation reports & ClearanceVerdict
+    │   ├── evaluators.py              # CFO, Architect, Legal evaluators
+    │   └── parallel_evaluator_squad.py# Fan-out / Fan-in aggregator & timeout sensors
     │
-    ├── supervisor_contracts.py    # Build 3: Dynamic routing contracts
-    ├── supervisor.py              # Build 3: Triage doctor & host engine
+    ├── build3_supervisor/             # Build 3: Supervisor Pattern
+    │   ├── __init__.py
+    │   ├── supervisor_contracts.py    # Routing decisions & coordinator result
+    │   └── supervisor.py              # Triage doctor & host engine
     │
-    ├── debate_contracts.py        # Build 4: Adversarial critique envelopes
-    ├── debate_agents.py           # Build 4: Proposer & Critic agents
-    ├── debate_protocol.py         # Build 4: Dialectic convergence protocol
+    ├── build4_debate_consensus/       # Build 4: Debate & Consensus Protocol
+    │   ├── __init__.py
+    │   ├── debate_contracts.py        # Critique points & ConsensusVerdict
+    │   ├── debate_agents.py           # DebateCopywriter & ComplianceCritic
+    │   └── debate_protocol.py         # Dialectic convergence coordinator
     │
-    ├── a2a_contracts.py           # Build 5: JSON-RPC 2.0 & Capability envelopes
-    ├── remote_compliance_service.py # Build 5: Standalone HTTP A2A specialist
-    ├── a2a_client.py              # Build 5: Resilient client proxy
-    └── test_a2a_resilience.py     # Build 5: End-to-end resilience test suite
+    └── build5_remote_a2a/             # Build 5: Remote A2A Specialist
+        ├── __init__.py
+        ├── a2a_contracts.py           # JSON-RPC 2.0 & Capability envelopes
+        ├── remote_compliance_service.py # Standalone HTTP A2A specialist & idempotency cache
+        ├── a2a_client.py              # Resilient client proxy & fail-closed containment
+        └── test_a2a_resilience.py     # End-to-end resilience verification suite
 ```
 
 ---
@@ -140,29 +150,30 @@ followup-sequence-builder/
 pip install -r requirements.txt
 ```
 
-### 2. Run Build 2: Parallel Fan-Out / Fan-In Squad
+### 2. Run Build 1: Sequential Specialist Pipeline
 ```bash
-python -m multi_agent_platform.parallel_evaluator_squad
+python -m multi_agent_platform.build1_sequential.pipeline
 ```
-*Expected Output:* Concurrent execution verified in ~409 ms (vs 1,200 ms sequential); partial failure containment verified on 3.0s simulated hang.
 
-### 3. Run Build 3: Supervisor Pattern (Dynamic Triage)
+### 3. Run Build 2: Parallel Fan-Out / Fan-In Squad
 ```bash
-python -m multi_agent_platform.supervisor
+python -m multi_agent_platform.build2_parallel_evaluators.parallel_evaluator_squad
 ```
-*Expected Output:* All 4 scenarios verified (Standard Fast-Track, Enterprise Deep Audit, Infeasible Gate Halt, and Opt-Out Escalation).
 
-### 4. Run Build 4: Debate & Consensus Protocol
+### 4. Run Build 3: Supervisor Pattern (Dynamic Triage)
 ```bash
-python -m multi_agent_platform.debate_protocol
+python -m multi_agent_platform.build3_supervisor.supervisor
 ```
-*Expected Output:* 2-round dialectic convergence verified; circuit breaker trip on non-compliant copy verified with `final_draft = None`.
 
-### 5. Run Build 5: Remote A2A Specialist & Idempotency Resilience
+### 5. Run Build 4: Debate & Consensus Protocol
 ```bash
-python -m multi_agent_platform.test_a2a_resilience
+python -m multi_agent_platform.build4_debate_consensus.debate_protocol
 ```
-*Expected Output:* All 6 tests passing (Capability discovery, GDPR boundary enforcement, 2 ms cached idempotency replay, 0.51s bounded-wait SLA timeout, and remote 500 crash containment).
+
+### 6. Run Build 5: Remote A2A Specialist & Idempotency Resilience
+```bash
+python -m multi_agent_platform.build5_remote_a2a.test_a2a_resilience
+```
 
 ---
 

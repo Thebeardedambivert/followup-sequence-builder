@@ -14,9 +14,9 @@ Tests verified:
 
 import asyncio
 import time
-from multi_agent_platform.remote_compliance_service import RemoteComplianceServer
-from multi_agent_platform.a2a_client import RemoteComplianceClient
-from multi_agent_platform.a2a_contracts import ComplianceAuditStatus
+from multi_agent_platform.build5_remote_a2a.remote_compliance_service import RemoteComplianceServer
+from multi_agent_platform.build5_remote_a2a.a2a_client import RemoteComplianceClient
+from multi_agent_platform.build5_remote_a2a.a2a_contracts import ComplianceAuditStatus
 
 
 async def run_resilience_test_suite():

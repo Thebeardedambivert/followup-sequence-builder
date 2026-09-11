@@ -4,8 +4,8 @@ Week 5: Multi-Agent Systems Engineering
 """
 
 import asyncio
-from contracts import ExtractedLead, DealTier
-from evaluator_contracts import FinancialReport, TechnicalReport, ComplianceReport
+from multi_agent_platform.build1_sequential.contracts import ExtractedLead, DealTier
+from multi_agent_platform.build2_parallel_evaluators.evaluator_contracts import FinancialReport, TechnicalReport, ComplianceReport
 
 
 # ---------------------------------------------------------------------------
